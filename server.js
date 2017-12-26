@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-
+const port = process.env.PORT || 4000;
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -19,9 +19,9 @@ app.use((req, res, next) => {	// register a middleware
 	});
 });
 
-app.use((req, res, next) => {
-	res.render('maintenance.hbs')
-});
+// app.use((req, res, next) => {
+// 	res.render('maintenance.hbs')
+// });
 
 app.get('/', (req, res) => {
 	// res.send('<h1>Hello Express</h1>');	// responding to the request by sending some data back
@@ -50,6 +50,6 @@ app.get('/bad', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {	// can take an optional second argument
-	console.log('Server is up in port 3000.')
+app.listen(port, () => {	// can take an optional second argument
+	console.log(`Server is up in port ${port}`)
 });
