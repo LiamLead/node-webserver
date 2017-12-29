@@ -19,9 +19,9 @@ app.use((req, res, next) => {	// register a middleware
 	});
 });
 
-// app.use((req, res, next) => {
-// 	res.render('maintenance.hbs')
-// });
+/*app.use((req, res, next) => {
+	res.render('maintenance.hbs')
+});*/
 
 app.get('/', (req, res) => {
 	// res.send('<h1>Hello Express</h1>');	// responding to the request by sending some data back
@@ -47,6 +47,12 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
 	res.send({
 		errorMessage: '404 Page Not Found.'
+	});
+});
+
+app.get('/projects', (req, res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
 	});
 });
 
